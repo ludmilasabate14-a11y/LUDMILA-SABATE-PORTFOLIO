@@ -59,31 +59,49 @@ button.card{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%
 .box{position:relative;width:min(92vw,400px);aspect-ratio:9/16;max-height:82vh;background:#000}.box.wide{width:min(92vw,920px);aspect-ratio:16/9}
 .box video,.box iframe{width:100%;height:100%;border:0;display:block}
 .x{position:absolute;top:-2.6rem;right:0;background:none;border:0;color:var(--w);font:700 1rem "DM Sans",sans-serif;cursor:pointer}.x:hover{color:var(--r)}
+.hd b{flex:none}.hd nav{min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.hd nav::-webkit-scrollbar{display:none}
+.role{font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--r);font-size:clamp(1.1rem,3.5vw,1.8rem);margin:1.5rem 0 2rem}
+.two{display:grid;gap:2rem}@media(min-width:800px){.two{grid-template-columns:1fr 1.5fr}}
+.about p{font-size:1.2rem;max-width:46ch;margin:0 0 1.25rem}
+.steps,.tyc{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.pan{border:1px solid var(--l);border-radius:6px;padding:1.4rem;background:var(--g)}
+.pan .n{font-family:Anton,sans-serif;font-size:2.6rem;color:var(--r);line-height:1}.pan h3{font-size:1.5rem;margin:.5rem 0 .6rem}.pan p{margin:0;color:#cfccc6}
+.sub{max-width:44ch;margin:-1rem 0 2rem;font-size:1.15rem}.note{color:var(--r);font-weight:700;margin-top:1.5rem}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style></head><body>
 <div class="bar" id="bar"></div>
 <header class="hd"><b>LUDD<i>.</i>MOV</b><span class="tc" id="tc" aria-hidden="true">00:00:00:00</span>
-<nav aria-label="Secciones"><a href="#trabajos">Trabajos</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></nav></header>
+<nav aria-label="Secciones"><a href="#inicio">Inicio</a><a href="#sobre-mi">Sobre mí</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#tyc">T&amp;C</a><a href="#trabajos">Trabajos</a><a href="#contacto">Contacto</a></nav></header>
 
-<section class="hero">
- <p class="kick">Portfolio · Edición de video</p>
- <h1>Edito videos<br>que se miran<br><em>hasta el final.</em></h1>
- <p class="lead">Soy Ludmila Sabate, editora de video y diseñadora gráfica freelance. Cortes, ritmo y motion para contenido de redes.</p>
+<section class="hero" id="inicio">
+ <p class="kick">Portfolio 2026</p>
+ <h1>Ludmila<br>Sabate</h1>
+ <p class="role">Video editor</p>
  <p><a class="btn" href="#trabajos">Ver trabajos</a><a class="btn o" href="#contacto">Contacto</a></p>
 </section>
 <div class="strip" aria-hidden="true"></div>
 <div class="mq" aria-hidden="true"><div id="mq"></div></div>
 
-<section id="trabajos"><h2>Trabajos</h2><div class="grid" id="grid"></div></section>
-<div class="strip" aria-hidden="true"></div>
 
+
+<section id="sobre-mi" class="about"><div class="two"><h2>Sobre mí</h2><div>
+ <p>Soy editora de video y me enfoco en crear contenido dinámico, atractivo y pensado para captar la atención desde los primeros segundos.</p>
+ <p>Estoy ampliando mi experiencia en edición, storytelling visual y creación de contenido.</p>
+ <p>Mi objetivo es transformar ideas y material en bruto en videos que comuniquen, mantengan el interés y reflejen la identidad de cada proyecto.</p></div></div></section>
+<div class="strip" aria-hidden="true"></div>
 <section id="servicios"><h2>Servicios</h2><div class="svc">
  <div class="row"><span>01</span><h3>Edición de video</h3><p>Videos verticales y horizontales para TikTok, Reels y más: cortes, ritmo, subtítulos, zooms y motion graphics simples.</p></div>
  <div class="row"><span>02</span><h3>Diseño gráfico</h3><p>Piezas, portadas y plantillas con identidad propia para tus redes.</p></div>
  <div class="row"><span>03</span><h3>Contenido UGC</h3><p>Videos con estilo natural y cercano para que las marcas se muestren como son.</p></div>
  <div class="row"><span>04</span><h3>Community manager</h3><p>Gestión y planificación de contenido para tu cuenta.</p></div>
 </div></section>
-
+<div class="strip" aria-hidden="true"></div>
+<section id="proceso"><h2>Proceso de trabajo</h2><p class="sub">Así es como trabajamos juntos, de la idea a la entrega final.</p><div class="steps"><div class="pan"><span class="n">01</span><h3>Brief y referencias</h3><p>Conversamos tu idea, objetivo y estilo. Definimos el rumbo creativo.</p></div><div class="pan"><span class="n">02</span><h3>Edición inicial</h3><p>Selecciono material y construyo la primera versión.</p></div><div class="pan"><span class="n">03</span><h3>Revisión</h3><p>Hacemos ajustes y afinamos cada detalle juntos.</p></div><div class="pan"><span class="n">04</span><h3>Entrega final</h3><p>Entrega del proyecto listo para ser publicado o presentado.</p></div></div></section>
+<div class="strip" aria-hidden="true"></div>
+<section id="tyc"><h2>Términos y condiciones</h2><div class="tyc"><div class="pan"><h3>Contratos y pagos</h3><p>El trabajo comienza una vez confirmado el proyecto y recibido el anticipo del 50%. El 50% restante se abona antes de entregar la versión final sin marca de agua.</p></div><div class="pan"><h3>Servicio y plazos</h3><p>Los plazos se acuerdan previamente con cada cliente. Las demoras en la entrega del material o en las respuestas del cliente pueden extender el tiempo de trabajo.</p></div><div class="pan"><h3>Revisiones</h3><p>Cada proyecto incluye hasta 2 rondas de revisiones menores. Los cambios que se alejen de la idea aprobada o impliquen rehacer gran parte del video pueden tener un costo adicional.</p></div><div class="pan"><h3>Material y derechos</h3><p>El cliente debe contar con los derechos o permisos necesarios para utilizar el material que proporciona. La música, imágenes y recursos de terceros están sujetos a sus respectivas licencias.</p></div><div class="pan"><h3>Comunicación y aceptación</h3><p>Al contratar mis servicios, el cliente confirma que leyó y acepta estos términos. Las condiciones específicas de cada proyecto se acordarán por escrito antes de comenzar.</p></div></div><p class="note">Para consultas o acuerdos especiales, contactame antes de contratar.</p></section>
+<div class="strip" aria-hidden="true"></div>
+<section id="trabajos"><h2>Trabajos</h2><div class="grid" id="grid"></div></section>
+<div class="strip" aria-hidden="true"></div>
 <section class="cta" id="contacto"><div>
  <h2>Hablemos.</h2>
  <p>¿Tenés un video para editar o un proyecto en mente? Escribime.</p>
