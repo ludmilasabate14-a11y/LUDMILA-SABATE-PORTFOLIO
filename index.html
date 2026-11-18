@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ludmila Sabate | Portfolio de edición de video</title>
+<meta name="description" content="Portfolio de Ludmila Sabate (@ludd.mov), editora de video y diseñadora gráfica freelance.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--k:#0a0a0a;--r:#E32636;--w:#f5f3ef;--g:#161616;--l:#2c2c2c;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(4.5rem + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--k);color:var(--w);font:400 1.05rem/1.55 "DM Sans",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--r);outline-offset:3px}
+h1,h2,h3,.tc,.num{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;margin:0;line-height:.95}
+.bar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--r);z-index:60}
+.hd{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:calc(.8rem + env(safe-area-inset-top,0px)) 1.25rem .8rem;background:#0a0a0aee;border-bottom:1px solid var(--l)}
+.hd b{font-family:Anton,sans-serif;font-weight:400;font-size:1.3rem;letter-spacing:.04em;text-decoration:none}
+.hd b i{color:var(--r);font-style:normal}
+.tc{font-size:1rem;color:var(--r);letter-spacing:.1em}
+.hd nav{display:flex;gap:1.1rem}.hd nav a{text-decoration:none;font-weight:700;font-size:.95rem}.hd nav a:hover{color:var(--r)}
+@media(max-width:620px){.tc{display:none}}
+section{padding:5rem 1.25rem;max-width:1180px;margin:0 auto}
+.hero{padding-top:9rem;min-height:92vh;display:flex;flex-direction:column;justify-content:center}
+.kick{font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--r);margin:0 0 1rem}
+h1{font-size:clamp(3.4rem,14vw,10.5rem)}h1 em{font-style:normal;color:var(--r)}
+.hero p.lead{max-width:36ch;font-size:1.25rem;margin:1.75rem 0 2rem}
+.btn{display:inline-block;background:var(--r);color:#0a0a0a;font-weight:700;padding:.9rem 1.6rem;border-radius:999px;text-decoration:none;border:2px solid var(--r);transition:transform .15s,background .15s,color .15s}
+.btn:hover{background:transparent;color:var(--w);transform:translateY(-3px)}
+.btn.o{background:transparent;color:var(--w);border-color:var(--w);margin-left:.5rem}.btn.o:hover{border-color:var(--r);color:var(--r)}
+.strip{height:12px;background:repeating-linear-gradient(90deg,var(--w) 0 16px,transparent 16px 32px)}
+.mq{overflow:hidden;white-space:nowrap;border-block:1px solid var(--l);padding:.8rem 0;background:var(--r);color:#0a0a0a}
+.mq div{display:inline-block;animation:mq 26s linear infinite;font-family:Anton,sans-serif;font-size:1.5rem;letter-spacing:.06em;text-transform:uppercase}
+@keyframes mq{to{transform:translateX(-50%)}}
+h2{font-size:clamp(2.4rem,8vw,5rem);margin-bottom:2.25rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.1rem}
+.card{position:relative;aspect-ratio:9/16;background:var(--g);border:1px solid var(--l);border-radius:6px;padding:1rem;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:transform .2s,border-color .2s}
+a.card:hover{transform:translateY(-6px);border-color:var(--r)}
+.num{font-size:4.5rem;color:var(--r);opacity:.9}
+.play{width:0;height:0;border-left:26px solid var(--w);border-top:16px solid transparent;border-bottom:16px solid transparent;align-self:center;opacity:.8}
+.card h3{font-size:1.5rem;margin-bottom:.4rem}.card small{color:#b9b6b0;font-size:.85rem}
+.soon{position:absolute;top:1rem;right:1rem;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:1px solid #6b6b6b;color:#b9b6b0;border-radius:99px;padding:.1rem .55rem}
+.svc{border-top:1px solid var(--l)}
+.row{display:grid;grid-template-columns:3.2rem 1fr;gap:.25rem 1rem;padding:1.6rem 0;border-bottom:1px solid var(--l);transition:padding-left .2s}
+.row:hover{padding-left:.75rem}.row:hover h3{color:var(--r)}
+.row span{font-family:Anton,sans-serif;color:var(--r);font-size:1.4rem}
+.row h3{font-size:clamp(1.6rem,5vw,2.6rem)}.row p{grid-column:2;margin:.3rem 0 0;color:#cfccc6;max-width:52ch}
+.cta{background:var(--r);color:#0a0a0a;max-width:none;padding:0}
+.cta>div{max-width:1180px;margin:auto;padding:5rem 1.25rem}
+.cta h2{font-size:clamp(3.5rem,16vw,12rem);margin-bottom:1.5rem}
+.cta p{font-size:1.2rem;max-width:34ch;margin:0 0 2rem;font-weight:700}
+.cta .btn{background:#0a0a0a;color:var(--w);border-color:#0a0a0a}.cta .btn:hover{background:transparent;color:#0a0a0a}
+footer{padding:1.5rem 1.25rem calc(2rem + env(safe-area-inset-bottom,0px));text-align:center;color:#8d8a84;font-size:.9rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<div class="bar" id="bar"></div>
+<header class="hd"><b>LUDD<i>.</i>MOV</b><span class="tc" id="tc" aria-hidden="true">00:00:00:00</span>
+<nav aria-label="Secciones"><a href="#trabajos">Trabajos</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></nav></header>
+
+<section class="hero">
+ <p class="kick">Portfolio · Edición de video</p>
+ <h1>Edito videos<br>que se miran<br><em>hasta el final.</em></h1>
+ <p class="lead">Soy Ludmila Sabate, editora de video y diseñadora gráfica freelance. Cortes, ritmo y motion para contenido de redes.</p>
+ <p><a class="btn" href="#trabajos">Ver trabajos</a><a class="btn o" href="#contacto">Contacto</a></p>
+</section>
+<div class="strip" aria-hidden="true"></div>
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="trabajos"><h2>Trabajos</h2><div class="grid" id="grid"></div></section>
+<div class="strip" aria-hidden="true"></div>
+
+<section id="servicios"><h2>Servicios</h2><div class="svc">
+ <div class="row"><span>01</span><h3>Edición de video</h3><p>Videos verticales y horizontales para TikTok, Reels y más: cortes, ritmo, subtítulos, zooms y motion graphics simples.</p></div>
+ <div class="row"><span>02</span><h3>Diseño gráfico</h3><p>Piezas, portadas y plantillas con identidad propia para tus redes.</p></div>
+ <div class="row"><span>03</span><h3>Contenido UGC</h3><p>Videos con estilo natural y cercano para que las marcas se muestren como son.</p></div>
+ <div class="row"><span>04</span><h3>Community manager</h3><p>Gestión y planificación de contenido para tu cuenta.</p></div>
+</div></section>
+
+<section class="cta" id="contacto"><div>
+ <h2>Hablemos.</h2>
+ <p>¿Tenés un video para editar o un proyecto en mente? Escribime.</p>
+ <a class="btn" id="contact" href="#" rel="noopener">@ludd.mov</a>
+</div></section>
+<footer>© 2026 Ludmila Sabate · @ludd.mov</footer>
+
+<script>
+/* ===== EDITÁ ESTO =====
+   Cada trabajo: title, type, url (link al video en TikTok, Instagram o YouTube). Sin url se muestra "Próximamente". */
+var CONTACT_URL="https://www.instagram.com/ludd.mov/";
+var WORKS=[
+ {title:"Título del proyecto 1",type:"TikTok · Edición vertical",url:""},
+ {title:"Título del proyecto 2",type:"Reels · Motion graphics",url:""},
+ {title:"Título del proyecto 3",type:"YouTube · Edición",url:""},
+ {title:"Título del proyecto 4",type:"UGC",url:""},
+ {title:"Título del proyecto 5",type:"Diseño gráfico",url:""},
+ {title:"Título del proyecto 6",type:"TikTok · Edición vertical",url:""}
+];
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+document.getElementById("grid").innerHTML=WORKS.map(function(w,i){
+ var n=("0"+(i+1)).slice(-2),inner='<span class="num">'+n+'</span><div class="play"></div><div><h3>'+esc(w.title)+'</h3><small>'+esc(w.type)+'</small></div>';
+ return w.url?'<a class="card" href="'+esc(w.url)+'" target="_blank" rel="noopener" aria-label="Ver '+esc(w.title)+'">'+inner+'</a>'
+  :'<div class="card">'+inner+'<span class="soon">Próximamente</span></div>';
+}).join("");
+document.getElementById("contact").href=CONTACT_URL;
+var words="EDICIÓN DE VIDEO ✦ TIKTOK ✦ REELS ✦ MOTION ✦ UGC ✦ DISEÑO ✦ ";
+document.getElementById("mq").textContent=words.repeat(8);
+var bar=document.getElementById("bar"),tc=document.getElementById("tc");
+function tick(){
+ var h=document.documentElement,max=h.scrollHeight-h.clientHeight,p=max>0?h.scrollTop/max:0;
+ bar.style.width=(p*100)+"%";
+ var f=Math.floor(p*90*24),pad=function(n){return("0"+n).slice(-2)};
+ tc.textContent="00:"+pad(Math.floor(f/24/60))+":"+pad(Math.floor(f/24)%60)+":"+pad(f%24);
+}
+addEventListener("scroll",tick,{passive:true});addEventListener("resize",tick);tick();
+</script>
+</body></html>
