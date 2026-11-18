@@ -89,12 +89,10 @@ footer{padding:1.5rem 1.25rem calc(2rem + env(safe-area-inset-bottom,0px));text-
    Cada trabajo: title, type, url (link al video en TikTok, Instagram o YouTube). Sin url se muestra "Próximamente". */
 var CONTACT_URL="https://www.instagram.com/ludd.mov/";
 var WORKS=[
- {title:"Título del proyecto 1",type:"TikTok · Edición vertical",url:""},
- {title:"Título del proyecto 2",type:"Reels · Motion graphics",url:""},
- {title:"Título del proyecto 3",type:"YouTube · Edición",url:""},
- {title:"Título del proyecto 4",type:"UGC",url:""},
- {title:"Título del proyecto 5",type:"Diseño gráfico",url:""},
- {title:"Título del proyecto 6",type:"TikTok · Edición vertical",url:""}
+ {title:"Título del proyecto 1",type:"TikTok · Edición vertical",url:"https://youtube.com/shorts/CRWuHI0XAKw?si=pxNbyHaLKat66GnD"},
+ {title:"Título del proyecto 2",type:"Reels · Motion graphics",url:"https://www.tiktok.com/@ludd.mov/video/7696739211772284212?is_from_webapp=1&sender_device=pc&web_id=7709306565493835265"},
+ {title:"Título del proyecto 3",type:"YouTube · Edición",url:"https://youtu.be/YbyXDP24cGQ?si=AD5PjXhtzd5sc2eN"},
+ {title:"Título del proyecto 6",type:"TikTok · Edición vertical",url:"https://www.tiktok.com/@kamisama._97/video/7704070960726707477?is_from_webapp=1&sender_device=pc&web_id=7709306565493835265"}
 ];
 var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
 document.getElementById("grid").innerHTML=WORKS.map(function(w,i){
