@@ -36,7 +36,7 @@ h1{font-size:clamp(3.4rem,14vw,10.5rem)}h1 em{font-style:normal;color:var(--r)}
 h2{font-size:clamp(2.4rem,8vw,5rem);margin-bottom:2.25rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.1rem}
 .card{position:relative;aspect-ratio:9/16;background:var(--g);border:1px solid var(--l);border-radius:6px;padding:1rem;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:transform .2s,border-color .2s}
-a.card:hover{transform:translateY(-6px);border-color:var(--r)}
+button.card:hover{transform:translateY(-6px);border-color:var(--r)}
 .num{font-size:4.5rem;color:var(--r);opacity:.9}
 .play{width:0;height:0;border-left:26px solid var(--w);border-top:16px solid transparent;border-bottom:16px solid transparent;align-self:center;opacity:.8}
 .card h3{font-size:1.5rem;margin-bottom:.4rem}.card small{color:#b9b6b0;font-size:.85rem}
@@ -52,6 +52,13 @@ a.card:hover{transform:translateY(-6px);border-color:var(--r)}
 .cta p{font-size:1.2rem;max-width:34ch;margin:0 0 2rem;font-weight:700}
 .cta .btn{background:#0a0a0a;color:var(--w);border-color:#0a0a0a}.cta .btn:hover{background:transparent;color:#0a0a0a}
 footer{padding:1.5rem 1.25rem calc(2rem + env(safe-area-inset-bottom,0px));text-align:center;color:#8d8a84;font-size:.9rem}
+button.card{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%}
+.card>.th,.card>.shade{position:absolute;inset:0;width:100%;height:100%;border-radius:6px}.card>.th{object-fit:cover}.card>.shade{background:#0a0a0a99}
+.card>.num,.card>.play,.card>div{position:relative}
+#md{position:fixed;inset:0;z-index:70;background:#000e;display:none;align-items:center;justify-content:center;padding:3.5rem 1rem 1rem}#md.on{display:flex}
+.box{position:relative;width:min(92vw,400px);aspect-ratio:9/16;max-height:82vh;background:#000}.box.wide{width:min(92vw,920px);aspect-ratio:16/9}
+.box video,.box iframe{width:100%;height:100%;border:0;display:block}
+.x{position:absolute;top:-2.6rem;right:0;background:none;border:0;color:var(--w);font:700 1rem "DM Sans",sans-serif;cursor:pointer}.x:hover{color:var(--r)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style></head><body>
 <div class="bar" id="bar"></div>
@@ -84,22 +91,47 @@ footer{padding:1.5rem 1.25rem calc(2rem + env(safe-area-inset-bottom,0px));text-
 </div></section>
 <footer>© 2026 Ludmila Sabate · @ludd.mov</footer>
 
+<div id="md" role="dialog" aria-modal="true" aria-label="Reproductor"><div class="box" id="box"></div></div>
 <script>
 /* ===== EDITÁ ESTO =====
-   Cada trabajo: title, type, url (link al video en TikTok, Instagram o YouTube). Sin url se muestra "Próximamente". */
+   Cada trabajo: title, type y url. En url poné el nombre de tu archivo (mi-video.mp4, subido al repositorio) o un enlace de YouTube, TikTok o Instagram.
+   Se reproduce dentro de la página. Opcional: poster:"portada.jpg" para la imagen de la tarjeta, wide:true para videos horizontales. Sin url dice "Próximamente". */
 var CONTACT_URL="https://www.instagram.com/ludd.mov/";
 var WORKS=[
- {title:"Título del proyecto 1",type:"TikTok · Edición vertical",url:"https://youtube.com/shorts/CRWuHI0XAKw?si=pxNbyHaLKat66GnD"},
- {title:"Título del proyecto 2",type:"Reels · Motion graphics",url:"https://www.tiktok.com/@ludd.mov/video/7696739211772284212?is_from_webapp=1&sender_device=pc&web_id=7709306565493835265"},
- {title:"Título del proyecto 3",type:"YouTube · Edición",url:"https://youtu.be/YbyXDP24cGQ?si=AD5PjXhtzd5sc2eN"},
- {title:"Título del proyecto 6",type:"TikTok · Edición vertical",url:"https://www.tiktok.com/@kamisama._97/video/7704070960726707477?is_from_webapp=1&sender_device=pc&web_id=7709306565493835265"}
+ {title:"Título del proyecto 1",type:"TikTok · Edición vertical",url:""},
+ {title:"Título del proyecto 2",type:"Reels · Motion graphics",url:""},
+ {title:"Título del proyecto 3",type:"YouTube · Edición",url:""},
+ {title:"Título del proyecto 4",type:"UGC",url:""},
+ {title:"Título del proyecto 5",type:"Diseño gráfico",url:""},
+ {title:"Título del proyecto 6",type:"TikTok · Edición vertical",url:""}
 ];
 var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+function kind(u){if(!u)return null;var m;
+ if(/\.(mp4|webm|mov)(\?.*)?$/i.test(u))return{t:"v",s:u};
+ if(m=u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([\w-]{6,})/))return{t:"i",s:"https://www.youtube.com/embed/"+m[1]+"?autoplay=1",wide:!/shorts\//.test(u)};
+ if(m=u.match(/tiktok\.com\/.*video\/(\d+)/))return{t:"i",s:"https://www.tiktok.com/embed/v2/"+m[1]};
+ if(m=u.match(/instagram\.com\/(?:reel|p)\/([\w-]+)/))return{t:"i",s:"https://www.instagram.com/reel/"+m[1]+"/embed"};
+ return{t:"l",s:u}}
 document.getElementById("grid").innerHTML=WORKS.map(function(w,i){
- var n=("0"+(i+1)).slice(-2),inner='<span class="num">'+n+'</span><div class="play"></div><div><h3>'+esc(w.title)+'</h3><small>'+esc(w.type)+'</small></div>';
- return w.url?'<a class="card" href="'+esc(w.url)+'" target="_blank" rel="noopener" aria-label="Ver '+esc(w.title)+'">'+inner+'</a>'
-  :'<div class="card">'+inner+'<span class="soon">Próximamente</span></div>';
+ var n=("0"+(i+1)).slice(-2),k=kind(w.url),bg="";
+ if(w.poster)bg='<img class="th" src="'+esc(w.poster)+'" alt="">';
+ else if(k&&k.t==="v")bg='<video class="th" src="'+esc(k.s)+'#t=0.5" muted playsinline preload="metadata"></video>';
+ if(bg)bg+='<span class="shade"></span>';
+ var inner=bg+'<span class="num">'+n+'</span><div class="play"></div><div><h3>'+esc(w.title)+'</h3><small>'+esc(w.type)+'</small></div>';
+ return k?'<button class="card" data-i="'+i+'" aria-label="Reproducir '+esc(w.title)+'">'+inner+'</button>':'<div class="card">'+inner+'<span class="soon">Próximamente</span></div>';
 }).join("");
+var md=document.getElementById("md"),box=document.getElementById("box");
+function closeMd(){md.classList.remove("on");box.innerHTML=""}
+document.getElementById("grid").addEventListener("click",function(e){
+ var b=e.target.closest("[data-i]");if(!b)return;
+ var w=WORKS[b.dataset.i],k=kind(w.url);
+ if(k.t==="l"){window.open(k.s,"_blank","noopener");return}
+ box.className="box"+((w.wide||k.wide)?" wide":"");
+ box.innerHTML=(k.t==="v"?'<video src="'+esc(k.s)+'" controls autoplay playsinline></video>':'<iframe src="'+esc(k.s)+'" allow="autoplay; fullscreen; encrypted-media" allowfullscreen title="'+esc(w.title)+'"></iframe>')+'<button class="x" id="cl">Cerrar ✕</button>';
+ md.classList.add("on");document.getElementById("cl").focus();
+});
+md.addEventListener("click",function(e){if(e.target===md||e.target.id==="cl")closeMd()});
+addEventListener("keydown",function(e){if(e.key==="Escape")closeMd()});
 document.getElementById("contact").href=CONTACT_URL;
 var words="EDICIÓN DE VIDEO ✦ TIKTOK ✦ REELS ✦ MOTION ✦ UGC ✦ DISEÑO ✦ ";
 document.getElementById("mq").textContent=words.repeat(8);
